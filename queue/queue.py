@@ -1,3 +1,8 @@
+# Has the methods: enqueue, dequeue, and len.
+# enqueue adds an element to the back of the queue.
+# dequeue removes and returns the element at the front of the queue.
+# len returns the number of elements in the queue.
+
 """
 A queue is a data structure whose primary purpose is to store and
 return elements in First In First Out order. 
