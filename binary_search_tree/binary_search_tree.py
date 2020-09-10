@@ -27,11 +27,73 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
+
+        if self.value:
+            if value < self.value:
+                if self.left is None:
+                    self.left = BSTNode(value)
+                else:
+                    self.left.insert(value)
+            elif value > self.value:
+                if self.right is None:
+                    self.right = BSTNode(value)
+                else:
+                    self.right.insert(value)
+        else:
+            self.value = value
+
+        # left case?
+        # check if the value is less than the root value?
+            # move to the left and check if it is none?
+                # insert node here
+            # otherwise
+                # call insert on the root's left node
+        # right case?
+        # otherwise
+            # move to the right and check if it is none?
+                # insert the node here
+            # otherwise
+                # call insert on the root's right node
+                
+
+        # other / base case
+
         pass
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
+
+        node = self.value
+
+        while node is not None:
+            if target == node.value:
+                return node
+            elif target < node.value:
+                node = node.left
+            elif target > node.data:
+                node = node.right
+        return None
+
+        # base case?
+        # check the root node value against target
+        # if the root node's value and the target are the same 
+            #return true
+        
+        # left case 
+        # check if the target is less than the root
+            # check if there is no child to the left
+                # return false
+            # otherwise
+                # call contains on the left child
+        
+        # right case
+        # otherwise
+            # check if there is no child to the right
+                #return false
+            # otherwise
+                #call contains on the right child
+
         pass
 
     # Return the maximum value found in the tree
@@ -93,3 +155,10 @@ print("in order")
 bst.in_order_dft()
 print("post order")
 bst.post_order_dft()  
+
+# Should have the methods insert, contains, get_max
+# insert adds the input value to the binary search tree, adhering to the rules of the ordering of elements in a binary search tree.
+# contains searches the binary search tree for the input value, returning a boolean indicating whether the value exists in the tree or not.
+# get_max returns the maximum value in the binary search tree.
+# for_each performs a traversal of every node in the tree, executing the passed-in callback function on each tree node value.
+# There is a myriad of ways to perform tree traversal; in this case any of them should work.
