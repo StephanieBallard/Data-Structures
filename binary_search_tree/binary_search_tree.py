@@ -28,19 +28,17 @@ class BSTNode:
     # Insert the given value into the tree
     def insert(self, value):
 
-        if self.value:
-            if value < self.value:
-                if self.left is None:
-                    self.left = BSTNode(value)
-                else:
-                    self.left.insert(value)
-            elif value > self.value:
-                if self.right is None:
-                    self.right = BSTNode(value)
-                else:
-                    self.right.insert(value)
-        else:
-            self.value = value
+        if value < self.value:
+            if self.left is None:
+                self.left = BSTNode(value)
+            else:
+                self.left.insert(value)
+        elif value > self.value:
+            if self.right is None:
+                self.right = BSTNode(value)
+            else:
+                self.right.insert(value)
+        
 
         # left case?
         # check if the value is less than the root value?
@@ -152,7 +150,7 @@ print("elegant methods")
 print("pre order")
 bst.pre_order_dft()
 print("in order")
-bst.in_order_dft()
+# bst.in_order_dft()
 print("post order")
 bst.post_order_dft()  
 
