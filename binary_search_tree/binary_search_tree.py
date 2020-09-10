@@ -97,11 +97,47 @@ class BSTNode:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        # base case
+        # if the tree is empty return none
+        if not self:
+            return None
+
+        # while there is a right child
+        while self.right:
+            # move to the right
+            self = self.right
+        
+        # once there are no more children to traverse we can return the value
+        return self.value
+
+    # return the minimum value found in a tree
+    def get_min(self):
+        # base case
+        # if the tree is empty return none
+        if not self:
+            return None
+
+        # while there is a left child
+        while self.left:
+            # move to the left
+            self = self.left
+        
+        # once there are no more child
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        # call foreach on the root node
+        fn(self.value)
+
+        # if left exists
+        if self.left:
+            # call for each on the left child
+            self.left.for_each(fn)
+
+        # if right exists
+        if self.right:
+            # call for each on the right child
+            self.right.for_each(fn)
 
     # Part 2 -----------------------
 
@@ -113,11 +149,37 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
+        # instantiate a queue
+
+        # enqueue our starting node (self)
+
+        # while the queue is not empty
+            # dequeue the current node
+            # print the nodes value
+
+            # check if left child exists
+                # enqueue left child
+
+            # check if right child exists
+                # enqueue right child
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
+        # instantiate a stack
+
+        # push our starting node (self)
+
+        # while the stack is not empty
+            # pop the current node
+            # print the nodes value
+
+            # check if left child exists
+                # push left child
+
+            # check if right child exists
+                # push right child
         pass
 
     # Stretch Goals -------------------------
