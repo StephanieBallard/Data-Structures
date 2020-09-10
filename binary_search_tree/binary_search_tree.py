@@ -61,17 +61,18 @@ class BSTNode:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-
-        node = self.value
-
-        while node is not None:
-            if target == node.value:
-                return node
-            elif target < node.value:
-                node = node.left
-            elif target > node.data:
-                node = node.right
-        return None
+        if target == self.value:
+            return True
+        elif target > self.value:
+            if self.right:
+                return self.right.contains(target)
+            else:
+                return False
+        else:
+            if self.left:
+                return self.left.contains(target)
+            else:
+                return False
 
         # base case?
         # check the root node value against target
